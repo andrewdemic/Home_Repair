@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Payment complete</title>
+    <style>
+      body { margin: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; font-family: system-ui, sans-serif; background: #fafaf9; color: #1c1917; }
+      .card { text-align: center; padding: 2.5rem; }
+      .check { width: 56px; height: 56px; border-radius: 50%; background: #d1fae5; color: #047857; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 28px; }
+      h1 { font-size: 1.25rem; margin: 0 0 .5rem; }
+      p { color: #78716c; margin: 0; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="check">&#10003;</div>
+      <h1>Payment complete</h1>
+      <p>You can close this window.</p>
+    </div>
+    <script>
+      window.opener && window.opener.postMessage('stripe-checkout-complete', '*');
+      setTimeout(function() { window.close(); }, 1500);
+    </script>
+  </body>
+</html>
